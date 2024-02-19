@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DROP PHOTO</title>
+    <link rel="stylesheet" href="static/dropphoto.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="{{url_for('home2',user=user)}}"><b>AKS Photoshop</b></a>
+            </div>
+            <div class="nav-links">
+                <a style="background-color: #0088a9;" class="nav-link" href="{{url_for('dropphoto',user=user)}}">Drop Photos</a>
+                <a class="nav-link" href="{{url_for('slideshow',user=user)}}">Slide Show</a>
+                <div class="dropdown">
+                    <button class="nav-link dropdown-toggle">Hello, {{user.first_name}}</button>
+                    <div class="dropdown-menu">
+                        <a href="#">Profile</a>
+                        <a href="#">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br>    
+
+    <div id="drop-area">
+        <form class="my-form">
+            <p>Upload multiple files with the file dialog or by dragging and dropping images onto the dashed region</p>
+            <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+            <label class="button" for="fileElem">Select files</label>
+        </form>
+        <br>
+        <p id="photo-counter">Number of Photos Uploaded: 0</p>
+        <progress id="progress-bar" max=100 value=0></progress>
+        
+        
+    </div>
+    <div id="gallery">
+    </div>
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+
+    <script src="static/dropphoto.js"></script>
+</body>
+
+</html>
